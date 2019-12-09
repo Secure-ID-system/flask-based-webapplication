@@ -1,0 +1,18 @@
+{% extends "public/templates/public_template.html" %}
+
+{% block title %}Display{% endblock %}
+
+{% block main %}
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+
+      <h1>Detected Faces</h1>
+      <hr>
+      <img src="{{ url_for('static', filename=file_name) }}" alt="User Image" width="50%" height="auto">
+    </div>
+  </div>
+</div>
+
+{% endblock %}

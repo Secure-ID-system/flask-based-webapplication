@@ -1,0 +1,41 @@
+{% extends "public/templates/public_template.html"%}
+{% block title %}About Us{% endblock %}
+{% block main %}
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+
+	<h1>Secure Face ID System</h1>
+	<hr>
+	<!-- <center><img src="{{ url_for('static', filename='img/icon.png')}}" width=25% display=block/></center> -->
+	<p>
+		As machine learning and especially computer vision becomes more ubiquitous technology, we leveraged state-of-the-art algortihms to create system for face recognition, which can be used out of the box. The system has to be populated with people's images and names. Then machine learning algorithm has to spend time for training and evaluation results. After that, the system is ready to use.  
+	</p>
+	<h2>Product Misson</h2>
+	<hr>
+	<p>
+		Make out-of-the-box solution for face recognition.  Build an iOS app which is able to capture image of a person and then match images in database, if avaliable then the user could get access to the sysytem.
+	</p>
+	<h2>Target Users</h2>
+	<hr>
+	<ul>
+		<li>Schools (Classroom Access, Dormitories)</li>
+		<li>Librarie</li>
+		<li>Companies (Educational Testing Services)</li>
+		<li>Residents (Visitor Access Control),etc</li>
+	</ul>
+	<h2>User Stories</h2>
+	<hr>
+	<ul>
+		<li>I, a lector, want to track class attendance using reliable method and without spending much time.</li>
+		<li>I, a hospital associate, want to identify a person who has a accidence without documents to facilitate the hospital check-in process.</li>
+		<li>I, an apartment owner, want to define the list of people who allowed to enter.</li>
+		<li>I, a representative of Education Testing Services, want to authenticate a person before they start the exam.</li>
+		<li>I, a building’s administrator, want to improve security by implementing access system based on face recognition.</li>
+	</ul>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
