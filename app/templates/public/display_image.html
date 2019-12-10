@@ -7,10 +7,18 @@
 <div class="container">
   <div class="row">
     <div class="col">
+		<h1>Detected Faces</h1>
+		<hr>
+		<img src="{{ url_for('static', filename=file_name) }}" alt="User Image" width="50%" height="auto">
 
-      <h1>Detected Faces</h1>
-      <hr>
-      <img src="{{ url_for('static', filename=file_name) }}" alt="User Image" width="50%" height="auto">
+		<h2>Who's here?</h2>
+		<ul>
+			{% for name, pic in attendants.items() %}
+			  <li>{{ name }}
+			  	<img src="{{ url_for('static', filename=pic) }}" alt="Student" width="5%" height="auto">
+			  </li>
+			{% endfor %}
+		</ul>
     </div>
   </div>
 </div>

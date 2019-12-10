@@ -1,3 +1,209 @@
+html {
+  font-family: 'Oswald', sans-serif;
+  margin: 0px;
+  padding: 0px;
+}
+
 body {
-  background-color: #f1f1f1;
+	background: rgb(42,57,145);
+	background: linear-gradient(90deg, rgba(42,57,145,1) 0%, rgba(87,42,207,1) 19%, rgba(65,213,225,1) 96%);
+	margin: 0px;
+	padding: 0px;
+}
+
+h1 {
+  font-family: 'Racing Sans One', cursive;
+  font-size: 3.5em; /* 31.104px */
+  line-height: 1.375em; /* 44px */
+  padding-top: 1.375em;
+  text-align: center;
+  padding-top: 3.5em;
+  padding-bottom: 0em;
+  color: white;
+  font-style: bold;
+  text-shadow: -1px 0 #3E85CB, 0 2px #3E85CB, 2px 0 #3E85CB, 0 -1px #3E85CB;
+}
+
+h2 {
+  font-family: 'Racing Sans One', cursive;
+  font-size: 1.3em;
+  color: white;
+  line-height: 1.2731em;
+  margin-top: 1.2731em;
+  margin-bottom: 0.84876em;
+  text-align: center;
+}
+
+h3 {  
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.2731em;
+  line-height: 0.84876em;
+  padding-top: 0.84876em;
+  padding-bottom: 0.84876em;
+  text-align: center;
+}
+
+h4 {
+  font-size: 1.022648em;
+  line-height: 0.84876em;
+  padding-top: 0.1022em;
+  padding-left: 1.585em;
+  text-align: center;
+}
+
+ul {
+  line-height: 1.2731em;
+}
+
+a {
+  text-decoration: none;
+  background-color: transparent;
+}
+
+/*==================MODULAR STYLES==================*/
+
+header {
+  font-family: 'Oswald', sans-serif;
+  z-index: 1;
+  top,left: 0; 
+  width: 100%; 
+  border:0;
+}
+
+section {
+  margin-top: 0.3125em;
+  margin-bottom: 0.3125em;
+  padding-top: 0.3125em;
+  padding-bottom: 0.3125em;
+  font-family: 'Oswald', sans-serif;
+}
+
+article {
+  border-radius: 0.25em;
+  margin-left: 6.048em;
+  margin-right: 6.048em;
+  margin-bottom:0.625em;
+  padding-left: 6.048em;
+  padding-right: 6.048em;
+  background-color: #3E85CB;
+}
+
+footer {
+  position: relative;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 0.3125em 0.625em 0.3125em 0.625em;
+  background-color: black; 
+  color: white;
+  font-family: 'Oswald', sans-serif;
+  text-align: center;
+}
+
+footer>a{
+  color: white;
+}
+
+p {
+  margin: auto;
+  margin-top: 1em;
+  width: 100%;
+  padding-top: 1.3em;
+  padding-bottom: 1.3em;
+}
+
+.navbar-brand {
+  font-size: 36px;
+  background: -webkit-linear-gradient(#eee, #333);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.container {
+  height: 100%;
+  min-height: 100%;
+  margin: 0.625em;
+  padding: 1.3em;
+  box-sizing: border-box;
+}
+
+.bt-wrapper {
+  position: relative;
+  text-align: center;
+  top: 50%;
+}
+
+.bt-label {
+  display: inline-block;
+  padding: 0.3125em 0.625em;
+  margin: 0.625em;
+  cursor: pointer;
+  color: #292929;
+  border-radius: 0.25em;
+  background: #efefef;
+  box-shadow: 0 0.3125em 10px rgba(0,0,0,0.2), inset 0 -0.3125em 0 rgba(0,0,0,0.22);
+  transition: 0.3s;
+  user-select: none;
+  h3 {
+    font-size: 1em;
+  }
+  &:hover {
+    background: darken(#efefef, 10%);
+    color: darken(#292929, 10%);
+    box-shadow: 0 0.3125em 10px rgba(0,0,0,0.2), inset 0 -0.3125em 0 rgba(0,0,0,0.32);
+  }
+  &:active {
+    transform: translateY(2px);
+    box-shadow: 0 0.3125em 10px rgba(0,0,0,0.2), inset 0px -1.1625em 0 rgba(0,0,0,0.22); 
+  }
+}
+
+#bt-nike:checked + .bt-label {
+  background: orange;
+  color: #efefef;
+  &:hover {
+    background: darken(orange, 5%);
+    color: darken(#efefef, 5%);
+  }
+}
+
+#bt-adidas:checked + .bt-label {
+  background: blue;
+  color: #efefef;
+  &:hover {
+    background: darken(blue, 5%);
+    color: darken(#efefef, 5%);
+  }
+}
+
+#bt-puma:checked + .bt-label {
+  background: green;
+  color: #efefef;
+  &:hover {
+    background: darken(green, 5%);
+    color: darken(#efefef, 5%);
+  }
+}
+
+#bt-reebok:checked + .bt-label {
+  background: blue;
+  color: #efefef;
+  &:hover {
+    background: darken(blue, 5%);
+    color: darken(#efefef, 5%);
+  }
+}
+
+#bt-submit + .bt-label {
+  background: gray;
+  color: #efefef;
+  &:hover {
+    background: darken(blue, 5%);
+    color: darken(#efefef, 5%);
+  }
+}
+
+.hidden {
+  display: none;
 }

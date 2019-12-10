@@ -4,8 +4,15 @@ from flask import render_template
 from werkzeug.utils import secure_filename
 from app.recognize import recognize
 from datetime import datetime
-import glob
+import firebase_admin
+from firebase_admin import db
 import os
+
+firebase_admin.initialize_app(options={
+    'databaseURL': 'https://face-id-sys.firebaseio.com'
+})
+
+PROFESSORS = db.reference('professors')
 
 @app.route("/")
 def index():
@@ -80,10 +87,15 @@ def upload_image():
 				timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
 				# processed_img = recognize(file_path, timestamp)
 				with open(file_path, "rb") as file_path:
-					processed_img = recognize(file_path,timestamp)
+					processed_img, people = recognize(file_path,timestamp)
 
+				attendants = {}
+				for student in people:
+					attendants.update({ (student.strip('dataset/')).split('/', 1)[0]: student})
+
+				total = len(attendants)
 				result_image = 'result/' + timestamp + ".png"
-				return render_template("public/display_image.html", file_name=result_image)
+				return render_template("public/display_image.html", file_name=result_image, attendants=attendants, total=total)
 
 			else:
 				print("That file extension is not allowed")
