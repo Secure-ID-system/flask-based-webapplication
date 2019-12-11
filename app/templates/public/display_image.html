@@ -5,22 +5,41 @@
 {% block main %}
 
 <div class="container">
-  <div class="row">
+  	<div class="row">
     <div class="col">
 		<h1>Detected Faces</h1>
 		<hr>
-		<img src="{{ url_for('static', filename=file_name) }}" alt="User Image" width="50%" height="auto">
-
-		<h2>Who's here?</h2>
-		<ul>
+		<center>
+			<img src="{{ url_for('static', filename=file_name) }}" alt="User Image" width="50%" height="auto">
+			<h2 style="margin: 0.7em;">Who's here?</h2>
+		</center>
+		<div class="card-deck">
+			<h3>TOTAL {{ total }}</h3>
 			{% for name, pic in attendants.items() %}
-			  <li>{{ name }}
-			  	<img src="{{ url_for('static', filename=pic) }}" alt="Student" width="5%" height="auto">
-			  </li>
+			<div class="card">
+				<img class="card-img-top" src="{{ url_for('static', filename=pic) }}" alt="Student" width="10em" height="auto">
+				<div class="card-body">
+				  <h5 class="card-title">{{ name }}</h5>
+				  <span class="badge badge-pill badge-success">Here</span>
+				</div>
+			</div>
 			{% endfor %}
-		</ul>
-    </div>
-  </div>
+		</div>
+
+<!-- 		<div class="card" style="width: 18rem;">
+		<ul class="list-group list-group-flush">
+			
+			{% for name, pic in attendants.items() %}
+			  <li class="list-group-item">{{ name }}
+			  	<img src="{{ url_for('static', filename=pic) }}" alt="Student" width="5%" height="auto">
+			  	<span class="badge badge-pill badge-success">Here</span>
+ -->				<!-- <span class="badge badge-pill badge-danger">Danger</span> -->
+				<!-- <a href="#" class="badge badge-warning">Warning</a> -->
+			  <!-- </li> -->
+			<!-- {% endfor %} -->
+		<!-- </ul> -->
+  	</div>
+	</div>
 </div>
 
 {% endblock %}

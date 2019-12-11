@@ -25,8 +25,6 @@ def extract_embeddings():
         image = cv2.imread(imagePath)
         image = imutils.resize(image, width=600)
         (h, w) = image.shape[:2]
-
-        # construct a blob from the image
         imageBlob = cv2.dnn.blobFromImage(
             cv2.resize(image, (300, 300)), 1.0, (300, 300),
             (104.0, 177.0, 123.0), swapRB=False, crop=False)
@@ -34,7 +32,6 @@ def extract_embeddings():
         detector.setInput(imageBlob)
         detections = detector.forward()
 
-        # ensure at least one face was found
         if len(detections) > 0:
             i = np.argmax(detections[0, 0, :, 2])
             confidence = detections[0, 0, i, 2]

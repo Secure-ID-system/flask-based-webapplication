@@ -33,24 +33,19 @@ def recognize(target, timestamp):
     for i in range(0, detections.shape[2]):
         confidence = detections[0, 0, i, 2]
 
-        if confidence > 0.4:
-            # compute the (x, y)-coordinates of the bounding box for the face
+        if confidence > 0.5:
             box = detections[0, 0, i, 3:7] * np.array([w, h, w, h])
             (startX, startY, endX, endY) = box.astype("int")
-
-            # extract the face ROI
             face = image[startY:endY, startX:endX]
             (fH, fW) = face.shape[:2]
 
             if fW < 20 or fH < 20:
                 continue
 
-            # construct a blob for the face ROI, then pass the blob through embedding model
             faceBlob = cv2.dnn.blobFromImage(face, 1.0 / 255, (96, 96), (0, 0, 0), swapRB=True, crop=False)
             embedder.setInput(faceBlob)
             vec = embedder.forward()
 
-            # perform classification to recognize the face
             preds = recognizer.predict_proba(vec)[0]
             j = np.argmax(preds)
             proba = preds[j]
@@ -65,7 +60,6 @@ def recognize(target, timestamp):
             dst = dsPath + dst
             cv2.imwrite(dst, crop)
 
-            # draw the bounding box of the face along with the associated probability
             text = "{}: {:.2f}%".format(name, proba * 100)
             y = startY - 10 if startY - 10 > 10 else startY + 10
             cv2.rectangle(image, (startX, startY), (endX, endY), (0, 0, 255), 2)
